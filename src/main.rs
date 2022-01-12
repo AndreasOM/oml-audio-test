@@ -4,8 +4,6 @@ use minifb::{Key, KeyRepeat, Window, WindowOptions};
 use oml_audio::Audio;
 use oml_audio::fileloader::FileLoaderDisk;
 
-use std::time::Instant;
-
 const WIDTH: usize = 1024;
 const HEIGHT: usize = 512;
 
@@ -33,16 +31,11 @@ fn main() {
     let mut audio = Audio::new();
     audio.load_sound_bank( &mut fileloader, "test.omsb" );
 
-    let mut last_now = Instant::now();
-
     let mut scale = 128.0;
     let mut xscale = 1.0;
 
     while window.is_open() && !window.is_key_down(Key::Escape) {
-        let timestep = last_now.elapsed().as_secs_f64();
-        last_now = Instant::now();
-
-        audio.update( timestep );
+        let _timestep = audio.update();
 
         if window.is_key_pressed(Key::C, KeyRepeat::No) {
             // start capture
