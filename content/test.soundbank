@@ -1,0 +1,4 @@
+# id;file;max instances;drop mode;flags (loop);
+
+coin;coin48000;10;OLDEST;NONE;
+sine;sine440hz48000;10;OLDEST;NONE;
