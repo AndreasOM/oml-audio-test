@@ -29,6 +29,7 @@ fn main() {
     fileloader.enable_debug();
 
     let mut audio = Audio::new();
+    audio.start();
     audio.load_sound_bank( &mut fileloader, "test.omsb" );
 
     let mut scale = 128.0;
